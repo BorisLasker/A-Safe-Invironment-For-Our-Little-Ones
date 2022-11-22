@@ -5,7 +5,7 @@ import os
 import time
 from threading import Thread
 
-path = 'C:/Users/saqibshakeel035/Desktop/Folder_1/'
+path = r'/A-Safe-Invironment-For-Our-Little-Ones/ast'
 files =os.listdir(path)
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
