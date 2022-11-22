@@ -5,7 +5,8 @@ import os
 import time
 from threading import Thread
 
-
+path = 'C:/Users/saqibshakeel035/Desktop/Folder_1/'
+files =os.listdir(path)
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
