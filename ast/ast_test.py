@@ -29,3 +29,7 @@ def predict_sample_audio(audio_model,labels,sample_audio_path):
   print('Predicted results:')
   for k in range(10):
       print('- {}: {:.4f}'.format(np.array(labels)[sorted_indexes[k]], result_output[sorted_indexes[k]]))
+      if(np.array(labels)[sorted_indexes[k]]=='Baby cry, infant cry' and result_output[sorted_indexes[k]]>0.1):
+        return True
+        
+      
