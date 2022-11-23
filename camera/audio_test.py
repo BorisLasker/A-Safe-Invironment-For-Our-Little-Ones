@@ -5,8 +5,7 @@ import os
 import time
 from threading import Thread
 
-path = r'/A-Safe-Invironment-For-Our-Little-Ones/ast'
-files =os.listdir(path)
+os.chdir("camera")
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
