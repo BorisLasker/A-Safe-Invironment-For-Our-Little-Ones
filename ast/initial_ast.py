@@ -9,9 +9,9 @@ import IPython
 
 global audio_model,labels
 
-
+os.chdir("ast")
 from src.models import ASTModel
-print(os.chdir("ast"))
+
 # Create a new class that inherits the original ASTModel class
 class ASTModelVis(ASTModel):
     def get_att_map(self, block, x):

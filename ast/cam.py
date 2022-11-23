@@ -30,7 +30,7 @@ class Camera:
 
 
 
-ADDRESS_FRAME_SAVE = "camera/saved frames/"
+ADDRESS_FRAME_SAVE = "saved frames/"
 
 # cam=Camera().start()
 

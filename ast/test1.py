@@ -9,7 +9,9 @@ counter =0
 import imutils
 import create_suspecious_video
 import cam
+import audio_test
 
+os.chdir("ast/camera")
 
 # t=str(time.strftime("%Y%m%d%H%M-%S"))
 # print(type(t))
@@ -67,8 +69,11 @@ sem = threading.Semaphore(1)
 
 vid_len=1000
 
-a=threading.Thread(target=create_suspecious_video.Create_Vid, args=('2022-11-12 12-08-12.wav', vid_len))
-a.start()
+# a=threading.Thread(target=create_suspecious_video.Create_Vid, args=('2022-11-12 12-08-12.wav', vid_len))
+# a.start()
+# counter = 2
+# T_audio = audio_test.AudioSample(counter).start()
+
 
 b=cam.Camera().start()
 print('done!')

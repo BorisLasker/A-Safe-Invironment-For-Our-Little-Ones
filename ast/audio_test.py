@@ -5,13 +5,14 @@ import os
 import time
 from threading import Thread
 
-os.chdir("camera")
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 16000
 RECORD_SECONDS = 5
 WAVE_OUTPUT_PATH = "audio/"
+
+os.chdir("ast")
 
 class AudioSample:
 
@@ -65,8 +66,8 @@ class AudioSample:
 
 
 
-counter = 2
-T_audio = AudioSample(counter).start()
+# counter = 2
+# T_audio = AudioSample(counter).start()
 
 
 
