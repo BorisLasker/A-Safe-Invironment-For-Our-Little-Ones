@@ -9,19 +9,16 @@ from threading import Thread
 ADDRESS_FRAME_SAVE = 'audio/'
 
 def AST():
-    for root, dirs, files in os.walk(ADDRESS_FRAME_SAVE):
-            for _file in files:
-                sample_audio_path = _file
-                print(sample_audio_path)
-                if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,ADDRESS_FRAME_SAVE+sample_audio_path)):
-                    #create_suspecious_video.Create_Vid(sample_audio_path,100)
-                    print(True)
-    
-#from camera import create_suspecious_video
-
-
-
+    while(True):
+        for root, dirs, files in os.walk(ADDRESS_FRAME_SAVE):
+                for _file in files:
+                    sample_audio_path = _file
+                    if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,ADDRESS_FRAME_SAVE+sample_audio_path)):
+                        #create_suspecious_video.Create_Vid(sample_audio_path,100)
+                        print(True)
+                        
 cam.Camera().start()
+
 T_audio = audio_test.AudioSample().start()
 
 
