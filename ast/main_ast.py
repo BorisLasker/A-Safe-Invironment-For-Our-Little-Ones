@@ -12,11 +12,18 @@ from watchdog.events import PatternMatchingEventHandler
 ADDRESS_FRAME_SAVE = 'audio'
 
 def on_created(event):
-    print(f"hey, {event.src_path} has been created!")
-    if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
-        #create_suspecious_video.Create_Vid(sample_audio_path,100)
-        print(True)
-    
+   
+        print(f"hey, {event.src_path} has been created!")
+        try:
+            if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
+                #create_suspecious_video.Create_Vid(sample_audio_path,100)
+                print(True)
+        except Exception as e:
+            print(e.args)
+            
+  
+        
+            
 def AST():
     patterns = ["*"]
     ignore_patterns = None
@@ -32,7 +39,7 @@ def AST():
     try:
         while True:
             time.sleep(1)
-    except KeyboardInterrupt:
+    except Exception:
         my_observer.stop()
         my_observer.join()
 
