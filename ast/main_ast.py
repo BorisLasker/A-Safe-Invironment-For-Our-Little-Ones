@@ -42,16 +42,6 @@ def AST():
     except Exception:
         my_observer.stop()
         my_observer.join()
-
-
-# def AST():
-#     while(True):
-#         for root, dirs, files in os.walk(ADDRESS_FRAME_SAVE):
-#                 for _file in files:
-#                     sample_audio_path = _file
-#                     if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,ADDRESS_FRAME_SAVE+sample_audio_path)):
-#                         #create_suspecious_video.Create_Vid(sample_audio_path,100)
-#                         print(True)
                         
 cam.Camera().start()
 
