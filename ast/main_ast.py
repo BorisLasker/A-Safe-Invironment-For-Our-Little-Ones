@@ -2,8 +2,8 @@
 import os
 import initial_ast
 from ast_test import predict_sample_audio
-# import audio_test
-# import cam
+import audio_test
+import cam
 from threading import Thread
 
 ADDRESS_FRAME_SAVE = 'ast/audio/'
@@ -19,11 +19,6 @@ def AST():
                     print(True)
                 print(sample_audio_path)
     
-
-
-
-
-
 #from camera import create_suspecious_video
 
 
@@ -32,7 +27,7 @@ def AST():
 
 c = Thread(target=AST(), args=()).start()
 
-# # print("sample_audio_path")
+# print("sample_audio_path")
 # cam.Camera().start()
 
 
