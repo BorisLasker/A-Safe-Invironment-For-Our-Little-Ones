@@ -11,14 +11,15 @@ CHANNELS = 2
 RATE = 16000
 RECORD_SECONDS = 5
 WAVE_OUTPUT_PATH = "audio/"
+import cam 
 
-os.chdir("ast")
+# os.chdir("ast")
 
 class AudioSample:
 
-    def __init__(self,counter):
+    def __init__(self):
 
-        self.counter = counter
+        # self.counter = counter
         self.stopped = False
         self.p = pyaudio.PyAudio()
         self.stream = self.p.open(format=FORMAT,
@@ -55,8 +56,9 @@ class AudioSample:
         wf.writeframes(b''.join(self.frames))
         wf.close()
 
-        self.counter-=1
-        if(self.counter==0):
+        # self.counter-=1
+        print(cam.FlagMicStop)
+        if(cam.FlagMicStop):
             self.stop()
 
 
