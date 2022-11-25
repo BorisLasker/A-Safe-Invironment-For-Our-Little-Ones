@@ -1,5 +1,4 @@
 
-*.jpg
-ast/audio/2022-11-25 11-32-52.wav
+pretrained_models/audio_mdl.pth
 *.wav
-*.pth
+*.jpg

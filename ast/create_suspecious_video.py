@@ -4,8 +4,8 @@ import shutil
 import numpy as np
 import cv2
 
-ADDRESS_FRAME_SAVE = "camera/saved frames/"
-ADDRESS_VIDEO_SAVE = 'camera/saved videos/'
+ADDRESS_FRAME_SAVE = "saved frames/"
+ADDRESS_VIDEO_SAVE = 'saved videos/'
 
 class Create_Vid:
  
