@@ -9,7 +9,7 @@ import IPython
 
 global audio_model,labels
 
-os.chdir("ast")
+
 from src.models import ASTModel
 
 # Create a new class that inherits the original ASTModel class
