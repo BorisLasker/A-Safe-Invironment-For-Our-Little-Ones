@@ -56,9 +56,10 @@ class AudioSample:
         wf.writeframes(b''.join(self.frames))
         wf.close()
 
-        # self.counter-=1
-        print(cam.FlagMicStop)
+       
+        print('mic is on')
         if(cam.FlagMicStop):
+            print('mic is off')
             self.stop()
 
 

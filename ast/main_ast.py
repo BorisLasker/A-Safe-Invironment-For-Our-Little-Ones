@@ -9,6 +9,17 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 
+# from firebase import firebase
+# firebase = firebase.FirebaseApplication("https://test-92470-default-rtdb.firebaseio.com/",None)
+
+# data  = {
+#     'name': 'boris'
+    
+# }
+
+# result = firebase.post('https://test-92470-default-rtdb.firebaseio.com/user',data)
+
+# print(result)
 ADDRESS_FRAME_SAVE = 'audio'
 
 def on_created(event):
@@ -20,10 +31,7 @@ def on_created(event):
                 print(True)
         except Exception as e:
             print(e.args)
-            
-  
-        
-            
+
 def AST():
     patterns = ["*"]
     ignore_patterns = None
@@ -47,20 +55,6 @@ cam.Camera().start()
 
 T_audio = audio_test.AudioSample().start()
 
-
 Thread(target = AST(), args=()).start()
-
-
-
-#sample_audio_path='audio/2022-11-25 10-17-55.wav'
-#predict_sample_audio(initial_ast.audio_model,initial_ast.labels,sample_audio_path)
-
-
-
-    
-
-
-
-# predict return true if audio is suspeciuos
 
 

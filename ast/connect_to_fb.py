@@ -34,7 +34,7 @@ from firebase import firebase
 #     }
 # )
 
-firebase = firebase.FirebaseApplication("https://mediashare-72f12-default-rtdb.firebaseio.com/",None)
+firebase = firebase.FirebaseApplication("https://mediashare-72f12-default-rtdb.firebaseio.com/User",None)
 
 data = {
     'name':'daniel'
