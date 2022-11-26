@@ -21,7 +21,9 @@ class Create_Vid:
         # current_time = dt.datetime.now()
         # current_time = current_time[:-7]
         
-        date1=dt.datetime.strptime(self.date,"%Y-%m-%d %H-%M-%S")     
+        date1=dt.datetime.strptime(self.date,"%Y-%m-%d %H-%M-%S")  
+        print(date1)
+        print(date1 - dt.timedelta(seconds=int(delta)))
         return (date1 - dt.timedelta(seconds=int(delta)))
 
     def merge_frames(self):
@@ -44,10 +46,10 @@ class Create_Vid:
         out.release()
 
 vid_len=100
-a = Create_Vid('2022-11-12 12-08-11.wav', vid_len)
-a.merge_frames()
-
-
+def test(suspecious_sound):
+    a = Create_Vid(suspecious_sound,1 )
+    a.merge_frames()
+#test('2022-11-26 12-37-44.wav')
 
 
 
