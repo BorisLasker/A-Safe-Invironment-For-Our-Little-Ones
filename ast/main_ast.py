@@ -17,8 +17,9 @@ def on_created(event):
         print(f"hey, {event.src_path} has been created!")
         try:
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
-                create_suspecious_video.Create_Vid(event.src_path,100)
-                create_suspecious_video.merge_frames()
+                substring = event.src_path[6:]
+                create_suspecious_video.test(substring)
+               
                 print(True)
         except Exception as e:
             print(e.args)
