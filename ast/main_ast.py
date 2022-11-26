@@ -8,18 +8,8 @@ from threading import Thread
 import time
 from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
+import create_suspecious_video
 
-# from firebase import firebase
-# firebase = firebase.FirebaseApplication("https://test-92470-default-rtdb.firebaseio.com/",None)
-
-# data  = {
-#     'name': 'boris'
-    
-# }
-
-# result = firebase.post('https://test-92470-default-rtdb.firebaseio.com/user',data)
-
-# print(result)
 ADDRESS_FRAME_SAVE = 'audio'
 
 def on_created(event):
@@ -27,7 +17,8 @@ def on_created(event):
         print(f"hey, {event.src_path} has been created!")
         try:
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
-                #create_suspecious_video.Create_Vid(sample_audio_path,100)
+                create_suspecious_video.Create_Vid(event.src_path,100)
+                create_suspecious_video.merge_frames()
                 print(True)
         except Exception as e:
             print(e.args)

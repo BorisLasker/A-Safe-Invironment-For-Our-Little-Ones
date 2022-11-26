@@ -44,8 +44,8 @@ class Create_Vid:
         out.release()
 
 vid_len=100
-a = Create_Vid('2022-11-12 12-08-11.wav', vid_len)
-a.merge_frames()
+#a = Create_Vid('2022-11-12 12-08-11.wav', vid_len)
+
 
 
 
