@@ -49,20 +49,6 @@ vid_len=100
 def test(suspecious_sound):
     a = Create_Vid(suspecious_sound,1 )
     a.merge_frames()
-#test('2022-11-26 12-37-44.wav')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# test('2022-11-29 11-03-57.wav')
 # current_time = dt.datetime.now()
 # current_time.strftime("%Y-%m-%d %H-%M-%S")

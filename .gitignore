@@ -2,3 +2,5 @@
 pretrained_models/audio_mdl.pth
 *.wav
 *.jpg
+ast/saved videos/2022-11-26 13-06-12.mp4
+*.mp4

@@ -19,7 +19,6 @@ def on_created(event):
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
                 substring = event.src_path[6:]
                 create_suspecious_video.test(substring)
-               
                 print(True)
         except Exception as e:
             print(e.args)
