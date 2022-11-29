@@ -50,6 +50,7 @@ def AST():
         my_observer.stop()
         my_observer.join()
     
+    
 Thread(target=connect_to_fb.ConnectToDB).start()
           
 cam.Camera().start()
