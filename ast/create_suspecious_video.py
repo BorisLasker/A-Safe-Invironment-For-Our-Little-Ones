@@ -10,22 +10,29 @@ ADDRESS_VIDEO_SAVE = 'saved videos/'
 class Create_Vid:
  
 
-    def __init__(self, date, vid_len):
+    def __init__(self, date, vid_len,delta):
         self.date = date
         self.date = self.date[:-4]
         self.vid_len = vid_len
-        
-        self.merge_frames()
+        self.delta = delta
+        self.date = self.delta_time(delta)
+        #self.merge_frames()
         
     def delta_time(self,delta):
-        # current_time = dt.datetime.now()
-        # current_time = current_time[:-7]
-        
         date1=dt.datetime.strptime(self.date,"%Y-%m-%d %H-%M-%S")  
-        print(date1)
-        print(date1 - dt.timedelta(seconds=int(delta)))
-        return (date1 - dt.timedelta(seconds=int(delta)))
-
+        date1 = date1 - dt.timedelta(seconds=int(delta))
+        date1=dt.datetime.strftime(date1,"%Y-%m-%d %H-%M-%S")  
+        return (date1)
+    
+    def delta_two_time(self,date2):
+            date2 = date2[:-4]
+            date1=dt.datetime.strptime(self.date,"%Y-%m-%d %H-%M-%S") 
+            
+            print(date1)
+            date2=dt.datetime.strptime(date2,"%Y-%m-%d %H-%M-%S")  
+            date = date2- date1
+            return ( date.seconds)
+        
     def merge_frames(self):
         found = False
         out = cv2.VideoWriter(ADDRESS_VIDEO_SAVE+str(self.date)+'.mp4', cv2.VideoWriter_fourcc(*"mp4v"), 23 , (1280,720))
@@ -45,24 +52,8 @@ class Create_Vid:
                     found=True  
         out.release()
 
-vid_len=100
-def test(suspecious_sound):
-    a = Create_Vid(suspecious_sound,1 )
-    a.merge_frames()
-#test('2022-11-26 12-37-44.wav')
+# vid_len=250
+# def CreateVideo(suspecious_sound):
+#      delta = 10
+#      a = Create_Vid(suspecious_sound,vid_len,delta )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# current_time = dt.datetime.now()
-# current_time.strftime("%Y-%m-%d %H-%M-%S")

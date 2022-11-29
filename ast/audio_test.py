@@ -13,7 +13,7 @@ RECORD_SECONDS = 5
 WAVE_OUTPUT_PATH = "audio/"
 import cam 
 
-# os.chdir("ast")
+
 
 class AudioSample:
 
