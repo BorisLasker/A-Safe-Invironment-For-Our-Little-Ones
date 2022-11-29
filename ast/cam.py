@@ -14,6 +14,7 @@ class Camera:
       
     def start(self):
         # start the thread to read frames from the video stream
+        
         Thread(target=self.cameraRecord, args=()).start()
         return self
       

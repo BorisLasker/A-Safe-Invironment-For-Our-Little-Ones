@@ -9,17 +9,25 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import create_suspecious_video
-
+import connect_to_fb
+from time import sleep
 ADDRESS_FRAME_SAVE = 'audio'
 
+lastAudio = ' '
+
 def on_created(event):
-   
-        print(f"hey, {event.src_path} has been created!")
+        global lastAudio
+        print(f"hey, {event.src_path}")
         try:
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
-                substring = event.src_path[6:]
-                create_suspecious_video.test(substring)
-                print(True)
+                currentAudio = event.src_path[6:]
+                suspeciousObj = create_suspecious_video.Create_Vid(currentAudio,250,10)
+                if lastAudio == ' ':
+                    lastAudio = currentAudio
+                    suspeciousObj.merge_frames()
+                if(suspeciousObj.delta_two_time(lastAudio) > 10):
+                    suspeciousObj.merge_frames()
+                    lastAudio = currentAudio
         except Exception as e:
             print(e.args)
 
@@ -41,11 +49,13 @@ def AST():
     except Exception:
         my_observer.stop()
         my_observer.join()
-                        
+    
+Thread(target=connect_to_fb.ConnectToDB).start()
+          
 cam.Camera().start()
 
-T_audio = audio_test.AudioSample().start()
+audio_test.AudioSample().start()
 
-Thread(target = AST(), args=()).start()
+AST()
 
 

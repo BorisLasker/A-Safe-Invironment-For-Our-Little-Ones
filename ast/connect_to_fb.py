@@ -1,3 +1,4 @@
+import threading
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db 
@@ -10,10 +11,7 @@ import time
 from threading import Thread
 
 
-
-
-
-ADDRESS_FRAME_SAVE = 'savedvideos'
+ADDRESS_FRAME_SAVE = 'saved videos'
 
 def on_created(event):
    
@@ -56,14 +54,19 @@ def uploadSuspeciousVideo():
     except Exception:
         my_observer.stop()
         my_observer.join()
+        
+        
+        
 
 
+def ConnectToDB():
+    cred = credentials.Certificate("firebase-sdk.json")
+    firebase_admin.initialize_app(cred,{
+        'databaseURL': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'
+    })
+    uploadSuspeciousVideo()
+ 
 
-cred = credentials.Certificate("firebase-sdk.json")
-# firebase_admin.initialize_app(cred,{
-#     'databaseURL': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'
-# })
-initialize_app(cred, {'storageBucket': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'})
-
-uploadSuspeciousVideo()
-#Thread(target = uploadSuspeciousVideo(), args=()).start()
+ 
+ 
+ 
