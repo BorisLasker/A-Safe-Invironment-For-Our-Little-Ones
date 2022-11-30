@@ -2,7 +2,7 @@
 import moviepy.editor as mpe
 import ffmpeg
 import threading
-from datetime import datetime
+from datetime import datetime, timedelta
 from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import time
@@ -10,31 +10,28 @@ from threading import Thread
 import os
 import datetime as dt
 
-
 ADDRESS_AUDIO = 'audio'
 ADDRESS_VIDEO = 'saved videos'
 
+def changeTime(tempTime,time):
+    tempTime =dt.datetime.strptime(tempTime,"%Y-%m-%d %H-%M-%S")
+    tempTime = tempTime + timedelta(hours=0, minutes=0, seconds=time)
+    tempTime=dt.datetime.strftime(tempTime,"%Y-%m-%d %H-%M-%S") 
+    return tempTime
+
 def on_created(event):
-   
-        # print(f", {event.src_path}")
+    
         videoName = event.src_path[13:-4]
+        videoName = changeTime(videoName,10)
         try:
             for root, dirs, files in os.walk(ADDRESS_AUDIO):
                 for _file in files:
                     audioName = str(_file)
                     audioName = audioName[0:19]
-                    print(audioName)
-                    temp = audioName
-                    temp1 =dt.datetime.strptime(temp,"%Y-%m-%d %H-%M-%S")
-                    print(temp1)
-                    temp1=temp1.seconds
-                    print(temp1)
-                    print('Here  '+ videoName,audioName)
                     if videoName == audioName:
                         combine_audio(videoName,audioName)  
         except Exception as e:
             print(e.args)
-
 
 def create_video_with_sound():
     patterns = ["*"]
@@ -58,6 +55,7 @@ def create_video_with_sound():
 
 
 def combine_audio(vidname, audname):
+    vidname = changeTime(vidname,-10)
     vidname = ADDRESS_VIDEO + '/'+vidname+'.mp4'
     audname = ADDRESS_AUDIO + '/'+audname+'.wav'
     print("video "+vidname,"Audio " +audname)
@@ -68,4 +66,4 @@ def combine_audio(vidname, audname):
 
 def init_video_sound():
     Thread(target = create_video_with_sound).start()
-init_video_sound()
+

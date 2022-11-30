@@ -18,9 +18,9 @@ lastAudio = ' '
 
 def on_created(event):
         global lastAudio
-        print(f", {event.src_path}")
+        print(f"{event.src_path}")
         try:
-            # if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
+            if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
                 currentAudio = event.src_path[6:]
                 suspeciousObj = create_suspecious_video.Create_Vid(currentAudio,250,10)
                 if lastAudio == ' ':
@@ -51,14 +51,16 @@ def ast():
         my_observer.stop()
         my_observer.join()
     
+    
+    
 VideoWithAudio.init_video_sound() 
   
 connect_to_fb.ConnectToDB()
           
-cam.Camera().start()
+# cam.Camera().start()
 
-audio_test.AudioSample().start()
+# audio_test.AudioSample().start()
 
-ast()
+# ast()
 
 

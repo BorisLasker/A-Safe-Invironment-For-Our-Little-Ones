@@ -9,7 +9,7 @@ from watchdog.events import PatternMatchingEventHandler
 import time
 from threading import Thread
 
-ADDRESS_FRAME_SAVE = 'VideoWithAudio'
+ADDRESS = 'VideoWithAudio'
 
 def on_created(event):
    
@@ -41,7 +41,7 @@ def uploadSuspeciousVideo():
     case_sensitive = True
     my_event_handler = PatternMatchingEventHandler(patterns, ignore_patterns, ignore_directories, case_sensitive)
     my_event_handler.on_created = on_created
-    path = ADDRESS_FRAME_SAVE
+    path = ADDRESS
     go_recursively = True
     my_observer = Observer()
     my_observer.schedule(my_event_handler, path, recursive=go_recursively)
