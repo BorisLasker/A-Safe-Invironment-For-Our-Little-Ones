@@ -1,6 +1,5 @@
 import threading
 import firebase_admin
-from firebase_admin import credentials
 from firebase_admin import db 
 from firebase_admin import credentials, initialize_app, storage
 
@@ -9,7 +8,7 @@ from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import time
 from threading import Thread
-
+import os
 
 ADDRESS_FRAME_SAVE = 'saved videos'
 
@@ -18,13 +17,15 @@ def on_created(event):
         print(f"hey, {event.src_path} a new video has been created!")
         try:
             fileName = event.src_path
+            #fileName ="2022-11-30 13-24-14.mp4"
+            print(fileName)
             bucket = storage.bucket()
             blob = bucket.blob(fileName)
             blob.upload_from_filename(fileName)
 
             # Opt : if you want to make public access from the URL
             blob.make_public()
-            
+            print( blob.public_url)
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             ref = db.reference('message')
@@ -68,10 +69,3 @@ def ConnectToDB():
         'databaseURL': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'
         })
     Thread(target = uploadSuspeciousVideo).start()
-
-    
- 
-
- 
- 
- 

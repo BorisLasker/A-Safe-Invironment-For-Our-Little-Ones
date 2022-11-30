@@ -17,7 +17,7 @@ lastAudio = ' '
 
 def on_created(event):
         global lastAudio
-        print(f"hey, {event.src_path}")
+        print(f", {event.src_path}")
         try:
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
                 currentAudio = event.src_path[6:]
@@ -51,7 +51,7 @@ def ast():
         my_observer.join()
     
     
-connect_to_fb.ConnectToDB
+connect_to_fb.ConnectToDB()
           
 cam.Camera().start()
 
