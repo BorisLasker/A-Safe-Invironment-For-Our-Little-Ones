@@ -15,24 +15,25 @@ ADDRESS_FRAME_SAVE = 'saved videos'
 
 def on_created(event):
    
-        print(f"hey, {event.src_path} has been created!")
+        print(f"hey, {event.src_path} a new video has been created!")
         try:
-            # fileName = event.src_path
-            # bucket = storage.bucket()
-            # blob = bucket.blob(fileName)
-            # blob.upload_from_filename(fileName)
-            # print(event)
-            temp = event.src_path
+            fileName = event.src_path
+            bucket = storage.bucket()
+            blob = bucket.blob(fileName)
+            blob.upload_from_filename(fileName)
+
+            # Opt : if you want to make public access from the URL
+            blob.make_public()
+            
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             ref = db.reference('message')
             user_ref = ref.push({
                 'currentDateTime':dt_string,     
-                'email':"boris.laskerr@gmail.com",
-                'imageUrl':temp,
-                'username':"Bor La"
+                'email':"Admin",
+                'imageUrl': blob.public_url,
+                'username':"Admin"
             })
-            print(True)
         except Exception as e:
             print(e.args)
 
@@ -62,9 +63,10 @@ def uploadSuspeciousVideo():
 def ConnectToDB():
 
     cred = credentials.Certificate("firebase-sdk.json")
-    firebase_admin.initialize_app(cred,{
+    initialize_app(cred, {
+        'storageBucket': 'mediashare-72f12.appspot.com',
         'databaseURL': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'
-    })
+        })
     Thread(target = uploadSuspeciousVideo).start()
 
     
