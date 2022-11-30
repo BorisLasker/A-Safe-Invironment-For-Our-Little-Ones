@@ -1,22 +1,16 @@
-# SuperFastPython.com
-# example of running a function in another thread
-from time import sleep
-from threading import Thread
- 
-# a custom function that blocks for a moment
-def task(name,sleep1):
-    while True:
-        # block for a moment
-        sleep(sleep1)
-        # display a message
-        print(name)
- 
-# create a thread
-thread = Thread(target=task, args=(["papa",5]))
+from firebase_admin import credentials, initialize_app, storage
 
+# Init firebase with your credentials
+cred = credentials.Certificate("firebase-sdk.json")
+initialize_app(cred, {'storageBucket': 'mediashare-72f12.appspot.com'})
 
-# run the thread
-thread.start()
+# Put your local file path 
+fileName = "ast.png"
+bucket = storage.bucket()
+blob = bucket.blob(fileName)
+blob.upload_from_filename(fileName)
 
-print("here")
+# Opt : if you want to make public access from the URL
+blob.make_public()
 
+print("your file url", blob.public_url)

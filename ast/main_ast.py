@@ -31,7 +31,7 @@ def on_created(event):
         except Exception as e:
             print(e.args)
 
-def AST():
+def ast():
     patterns = ["*"]
     ignore_patterns = None
     ignore_directories = False
@@ -51,12 +51,12 @@ def AST():
         my_observer.join()
     
     
-Thread(target=connect_to_fb.ConnectToDB).start()
+connect_to_fb.ConnectToDB
           
 cam.Camera().start()
 
 audio_test.AudioSample().start()
 
-AST()
+ast()
 
 

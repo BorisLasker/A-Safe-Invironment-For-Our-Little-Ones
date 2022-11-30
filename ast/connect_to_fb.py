@@ -60,11 +60,14 @@ def uploadSuspeciousVideo():
 
 
 def ConnectToDB():
+
     cred = credentials.Certificate("firebase-sdk.json")
     firebase_admin.initialize_app(cred,{
         'databaseURL': 'https://mediashare-72f12-default-rtdb.firebaseio.com/'
     })
-    uploadSuspeciousVideo()
+    Thread(target = uploadSuspeciousVideo).start()
+
+    
  
 
  
