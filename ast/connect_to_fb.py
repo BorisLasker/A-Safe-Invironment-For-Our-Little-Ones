@@ -8,9 +8,8 @@ from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import time
 from threading import Thread
-import os
 
-ADDRESS_FRAME_SAVE = 'saved videos'
+ADDRESS_FRAME_SAVE = 'VideoWithAudio'
 
 def on_created(event):
    

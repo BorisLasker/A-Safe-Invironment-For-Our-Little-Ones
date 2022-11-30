@@ -30,6 +30,7 @@ class Create_Vid:
             
             print(date1)
             date2=dt.datetime.strptime(date2,"%Y-%m-%d %H-%M-%S")  
+            
             date = date2- date1
             return ( date.seconds)
         
