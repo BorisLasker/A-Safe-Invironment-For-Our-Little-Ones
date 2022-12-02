@@ -18,7 +18,7 @@ import cam
 class AudioSample:
 
     def __init__(self):
-
+        print('mic is on')
         # self.counter = counter
         self.stopped = False
         self.p = pyaudio.PyAudio()
@@ -57,7 +57,6 @@ class AudioSample:
         wf.close()
 
        
-        print('mic is on')
         if(cam.FlagMicStop):
             print('mic is off')
             self.stop()

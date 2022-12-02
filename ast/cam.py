@@ -10,6 +10,7 @@ FlagMicStop = False
 class Camera:
 
     def __init__(self):
+      print("Camera is on")
       self.counter = 0
       
     def start(self):

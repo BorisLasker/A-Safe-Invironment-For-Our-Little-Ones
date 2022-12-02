@@ -35,7 +35,7 @@ def on_created(event):
             print(e.args)
 
 def uploadSuspeciousVideo():
-    print("Connecting to Data Base...")
+    print("Connected to Data Base")
     patterns = ["*"]
     ignore_patterns = None
     ignore_directories = False
