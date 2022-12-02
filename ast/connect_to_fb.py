@@ -13,7 +13,7 @@ ADDRESS = 'VideoWithAudio'
 
 def on_created(event):
    
-        print(f"hey, {event.src_path} a new video has been created!")
+        print(f"hey, {event.src_path} a new video has been uploded!")
         try:
             fileName = event.src_path
             bucket = storage.bucket()
@@ -35,6 +35,7 @@ def on_created(event):
             print(e.args)
 
 def uploadSuspeciousVideo():
+    print("Connecting to Data Base...")
     patterns = ["*"]
     ignore_patterns = None
     ignore_directories = False

@@ -5,3 +5,4 @@ pretrained_models/audio_mdl.pth
 *.mp4
 
 .fake
+*.tmp

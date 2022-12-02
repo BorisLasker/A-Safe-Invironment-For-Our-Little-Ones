@@ -9,7 +9,7 @@ import time
 from threading import Thread
 import os
 import datetime as dt
-
+import shutil
 ADDRESS_AUDIO = 'audio'
 ADDRESS_VIDEO = 'saved videos'
 
@@ -34,6 +34,7 @@ def on_created(event):
             print(e.args)
 
 def create_video_with_sound():
+    
     patterns = ["*"]
     ignore_patterns = None
     ignore_directories = False
@@ -62,7 +63,8 @@ def combine_audio(vidname, audname):
     my_clip = mpe.VideoFileClip(vidname)
     audio_background = mpe.AudioFileClip(audname)
     final_clip = my_clip.set_audio(audio_background)
-    final_clip.write_videofile('./VideoWithAudio/'+vidname[13:], fps=23, threads=1, codec="libx264")
+    final_clip.write_videofile('./'+vidname[13:], fps=23, threads=1, codec="libx264")
+    shutil.move('./' + vidname[13:],'./VideoWithAudio')
 
 def init_video_sound():
     Thread(target = create_video_with_sound).start()
