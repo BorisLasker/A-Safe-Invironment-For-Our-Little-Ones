@@ -204,7 +204,7 @@ public class LoginForm extends AppCompatActivity {
     //On selecting exit option
     private void showDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        MyAlertDialogFragment alertDialog = MyAlertDialogFragment.newInstance("Closing the application","Are you sure","Yes","No");
+        MyAlertDialogFragment alertDialog = MyAlertDialogFragment("Closing the application","Are you sure","Yes","No");
         alertDialog.show(fm, "fragment_alert");
     }
 

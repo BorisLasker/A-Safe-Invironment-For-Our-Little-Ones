@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee75c39c-b28a-470c-8e32-3d77f50788ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/A-Safe-Invironment-For-Our-Little-Ones.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ee75c39c-b28a-470c-8e32-3d77f50788ff" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
