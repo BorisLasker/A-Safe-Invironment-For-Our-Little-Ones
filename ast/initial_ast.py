@@ -1,7 +1,8 @@
 import os, csv, argparse, wget
 os.environ['TORCH_HOME'] = '/pretrained_models'
-if os.path.exists('pretrained_models') == False:
-  os.mkdir('/pretrained_models')
+#if not os.path.exists("pretrained_models"):
+print(os.path.exists("pretrained_models"))    
+os.makedirs('/pretrained_models', exist_ok=True)
 import torch, torchaudio, timm
 import numpy as np
 from torch.cuda.amp import autocast
