@@ -31,13 +31,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.MediaShare.SignUpForm"
-            android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <activity android:name="com.example.MediaShare.Main"
             android:exported="true">
             <intent-filter>
