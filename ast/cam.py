@@ -10,12 +10,10 @@ FlagMicStop = False
 class Camera:
 
     def __init__(self):
-      print("Camera is on")
       self.counter = 0
       
     def start(self):
         # start the thread to read frames from the video stream
-        
         Thread(target=self.cameraRecord, args=()).start()
         return self
       
@@ -23,6 +21,7 @@ class Camera:
     def cameraRecord(self):
         # start the thread to read frames from the video stream
         self.vs = WebcamVideoStream.WebcamVideoStream(src=0).start()
+        print("Camera is on")
         while True:
             self.image = self.vs.read()
             cv2.imshow('Image', self.image)

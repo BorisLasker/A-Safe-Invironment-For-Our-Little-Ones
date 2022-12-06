@@ -20,18 +20,20 @@ def changeTime(tempTime,time):
     return tempTime
 
 def on_created(event):
-    
+        count = 0
         videoName = event.src_path[13:-4]
         videoName = changeTime(videoName,10)
         try:
             for root, dirs, files in os.walk(ADDRESS_AUDIO):
-                for _file in files:
+                count += len(files) 
+            for _file in files:
+                    print(_file)
                     audioName = str(_file)
                     audioName = audioName[0:19]
                     if videoName == audioName:
                         combine_audio(videoName,audioName)  
         except Exception as e:
-            print(e.args)
+            print("ERROR" + e.args)
 
 def create_video_with_sound():
     

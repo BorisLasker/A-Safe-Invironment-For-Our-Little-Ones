@@ -33,7 +33,7 @@ def on_created(event):
             print(e.args)
 
 def ast():
-    print("Ast is listening for sounds....")
+    print("Ast is listening for sounds...")
     patterns = ["*"]
     ignore_patterns = None
     ignore_directories = False
@@ -61,10 +61,10 @@ VideoWithAudio.init_video_sound()
   
 connect_to_fb.ConnectToDB()
           
-# cam.Camera().start()
+cam.Camera().start()
 
-# audio_test.AudioSample().start()
+audio_test.AudioSample().start()
 
-# ast()
+ast()
 
 
