@@ -62,7 +62,7 @@
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="35dp"
                 android:text="Remember Me" />
 
             <Button
@@ -71,6 +71,14 @@
                 android:layout_height="wrap_content"
                 android:text="Login"
                 android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+
+                android:text="register" />
 
         </LinearLayout>
 

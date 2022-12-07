@@ -4,13 +4,15 @@ import datetime as dt
 import os
 import time
 from threading import Thread
-
+import shutil
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 16000
-RECORD_SECONDS = 11
+RECORD_SECONDS = 5
 WAVE_OUTPUT_PATH = "audio/"
+WAVE_OUTPUT = "./"
+
 import cam 
 
 
@@ -49,14 +51,16 @@ class AudioSample:
 
     def store(self):
         current_time = dt.datetime.now()
-        wf = wave.open(WAVE_OUTPUT_PATH + current_time.strftime('%Y-%m-%d %H-%M-%S') + '.wav', 'wb')
+        audioname = WAVE_OUTPUT_PATH + current_time.strftime('%Y-%m-%d %H-%M-%S') + '.wav'
+        wf = wave.open(audioname , 'wb')
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(self.p.get_sample_size(FORMAT))
         wf.setframerate(RATE)
         wf.writeframes(b''.join(self.frames))
+        # shutil.move('./' + audioname[2:],'./audio/')
         wf.close()
 
-       
+        
         if(cam.FlagMicStop):
             print('mic is off')
             self.stop()

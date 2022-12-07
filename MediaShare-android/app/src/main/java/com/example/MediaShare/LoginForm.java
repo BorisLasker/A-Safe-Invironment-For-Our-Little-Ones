@@ -42,6 +42,7 @@ public class LoginForm extends AppCompatActivity {
     private EditText passwordEditText;
     private CheckBox checkbox;
     private static Button loginButton;
+    private Button registerButton;
     public Context context;
 
     private static ArrayList<String> RememberMe;
@@ -74,6 +75,7 @@ public class LoginForm extends AppCompatActivity {
         EmailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
 
         // instance of our Firebase database.
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -159,7 +161,16 @@ public class LoginForm extends AppCompatActivity {
                 }
             }
         });
-}
+
+        //Moving to the register activity
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SignUpForm.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     //If RememberMe was checked, sets the email and password with the file's content.
     private void set_fields() {

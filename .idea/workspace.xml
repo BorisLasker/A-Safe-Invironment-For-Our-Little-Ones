@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee75c39c-b28a-470c-8e32-3d77f50788ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaShare-android/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/app/src/main/java/com/example/MediaShare/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/app/src/main/java/com/example/MediaShare/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/app/src/main/java/com/example/MediaShare/SignUpForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MediaShare-android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaShare-android/app/src/main/res/layout/signupform.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

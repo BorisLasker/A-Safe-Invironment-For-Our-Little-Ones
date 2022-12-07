@@ -11,7 +11,7 @@ import create_suspecious_video
 import connect_to_fb
 from time import sleep
 import VideoWithAudio
-ADDRESS_FRAME_SAVE = 'audio'
+ADDRESS_SAVE = 'audio'
 
 lastAudio = ' '
 
@@ -29,7 +29,7 @@ def on_created(event):
                     suspeciousObj.merge_frames()
                     lastAudio = currentAudio
         except Exception as e:
-            print(e.args)
+            print("here" , e.args)
 
 def ast():
     print("Ast is listening for sounds...")
@@ -39,7 +39,7 @@ def ast():
     case_sensitive = True
     my_event_handler = PatternMatchingEventHandler(patterns, ignore_patterns, ignore_directories, case_sensitive)
     my_event_handler.on_created = on_created
-    path = ADDRESS_FRAME_SAVE
+    path = ADDRESS_SAVE
     go_recursively = True
     my_observer = Observer()
     my_observer.schedule(my_event_handler, path, recursive=go_recursively)
