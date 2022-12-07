@@ -20,6 +20,7 @@ def changeTime(tempTime,time):
     return tempTime
 
 def on_created(event):
+        # time.sleep(1)
         videoName = event.src_path[13:-4]
         videoName = changeTime(videoName,10)
         try:
@@ -31,7 +32,7 @@ def on_created(event):
                             combine_audio(videoName,audioName)
                             raise StopIteration
         except Exception as e:
-            print(e.args)
+            print("videowithaudio")
         except StopIteration:
             pass
 

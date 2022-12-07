@@ -32,7 +32,7 @@ def on_created(event):
                 'username':"Admin"
             })
         except Exception as e:
-            print(e.args)
+                print("firebase")
 
 def uploadSuspeciousVideo():
     print("Connected to Data Base")

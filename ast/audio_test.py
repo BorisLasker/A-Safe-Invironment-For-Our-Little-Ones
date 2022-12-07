@@ -9,11 +9,11 @@ CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 16000
-RECORD_SECONDS = 5
+RECORD_SECONDS = 10
 WAVE_OUTPUT_PATH = "audio/"
 WAVE_OUTPUT = "./"
-
 import cam 
+
 
 
 
@@ -48,19 +48,16 @@ class AudioSample:
                 self.data = self.stream.read(CHUNK)
                 self.frames.append(self.data)
             self.store()
-
+            shutil.move('./' + self.audioname[2:], WAVE_OUTPUT_PATH)
     def store(self):
         current_time = dt.datetime.now()
-        audioname = WAVE_OUTPUT_PATH + current_time.strftime('%Y-%m-%d %H-%M-%S') + '.wav'
-        wf = wave.open(audioname , 'wb')
+        self.audioname = WAVE_OUTPUT + current_time.strftime('%Y-%m-%d %H-%M-%S') + '.wav'
+        wf = wave.open(self.audioname , 'wb')
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(self.p.get_sample_size(FORMAT))
         wf.setframerate(RATE)
         wf.writeframes(b''.join(self.frames))
-        # shutil.move('./' + audioname[2:],'./audio/')
         wf.close()
-
-        
         if(cam.FlagMicStop):
             print('mic is off')
             self.stop()
@@ -69,3 +66,5 @@ class AudioSample:
     def stop(self):
         # indicate that the thread should be stopped
         self.stopped = True
+        
+# AudioSample().start()

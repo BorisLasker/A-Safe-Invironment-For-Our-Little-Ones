@@ -34,9 +34,15 @@ class Create_Vid:
             date = date2- date1
             return ( date.seconds)
         
+    def create_video(self):
+        self.merge_frames()
+        shutil.move('./' + self.adress[2:],ADDRESS_VIDEO_SAVE )
+    
+        
     def merge_frames(self):
         found = False
-        out = cv2.VideoWriter(ADDRESS_VIDEO_SAVE+str(self.date)+'.mp4', cv2.VideoWriter_fourcc(*"mp4v"), 23 , (1280,720))
+        self.adress = './'+str(self.date)+'.mp4'
+        out = cv2.VideoWriter(self.adress, cv2.VideoWriter_fourcc(*"mp4v"), 23 , (1280,720))
         for root, dirs, files in os.walk(ADDRESS_FRAME_SAVE):
             for _file in files:
                 img_name = str(_file)

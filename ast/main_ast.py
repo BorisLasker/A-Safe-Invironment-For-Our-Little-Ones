@@ -24,12 +24,13 @@ def on_created(event):
                 suspeciousObj = create_suspecious_video.Create_Vid(currentAudio,250,10)
                 if lastAudio == ' ':
                     lastAudio = currentAudio
-                    suspeciousObj.merge_frames()
+                    suspeciousObj.create_video()
+                    
                 if(suspeciousObj.delta_two_time(lastAudio) > 10):
-                    suspeciousObj.merge_frames()
+                    suspeciousObj.create_video()
                     lastAudio = currentAudio
         except Exception as e:
-            print("here" , e.args)
+            pass
 
 def ast():
     print("Ast is listening for sounds...")
