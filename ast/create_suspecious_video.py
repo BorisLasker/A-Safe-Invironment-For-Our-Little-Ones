@@ -42,7 +42,7 @@ class Create_Vid:
     def merge_frames(self):
         found = False
         self.adress = './'+str(self.date)+'.mp4'
-        out = cv2.VideoWriter(self.adress, cv2.VideoWriter_fourcc(*"mp4v"), 9 , (1280,720))
+        out = cv2.VideoWriter(self.adress, cv2.VideoWriter_fourcc(*"mp4v"),25 , (1280,720))
         for root, dirs, files in os.walk(ADDRESS_FRAME_SAVE):
             for _file in files:
                 img_name = str(_file)
@@ -59,7 +59,7 @@ class Create_Vid:
                     found=True  
         out.release()
 
-vid_len=300
+vid_len=375
 delta = 15
 a = Create_Vid('2022-12-08 11-43-08.wav',vid_len,delta )
 a.create_video()
