@@ -28,8 +28,15 @@ def predict_sample_audio(audio_model,labels,sample_audio_path):
   # Print audio tagging top probabilities
   print('Predicted results:')
   for k in range(5):
-      print('- {}: {:.4f}'.format(np.array(labels)[sorted_indexes[k]], result_output[sorted_indexes[k]]))
-      if(np.array(labels)[sorted_indexes[k]]=='Baby cry, infant cry' and result_output[sorted_indexes[k]]>0.1):
+      label = np.array(labels)[sorted_indexes[k]]
+      print('- {}: {:.4f}'.format(label,result_output[sorted_indexes[k]]))
+      
+      if( (label =='Baby cry, infant cry' or 
+           label =="Shout" or 
+           label =='Screaming' or
+           label =="Slap, smack" or 
+           label =='Crying, sobbing' or 
+           label =="Squeal" ) and result_output[sorted_indexes[k]]>0.1):
         return True
         
       

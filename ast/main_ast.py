@@ -21,7 +21,7 @@ def on_created(event):
         try:
             if(predict_sample_audio(initial_ast.audio_model,initial_ast.labels,event.src_path)):
                 currentAudio = event.src_path[6:]
-                suspeciousObj = create_suspecious_video.Create_Vid(currentAudio,250,10)
+                suspeciousObj = create_suspecious_video.Create_Vid(currentAudio,300,15)
                 if lastAudio == ' ':
                     lastAudio = currentAudio
                     suspeciousObj.create_video()

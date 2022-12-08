@@ -69,8 +69,8 @@ public class ForegroundService extends Service {
                 .build();
 
         Notification New_media_notification = new NotificationCompat.Builder(this, CHANNEL_ID_2)
-                .setContentTitle("Media Share")
-                .setContentText("New media is available!")
+                .setContentTitle("Baby Cry System")
+                .setContentText("New Suspicious Video is available!")
                 .setSmallIcon(R.drawable.icon)
                 .setContentIntent(pendingIntent)
                 .build();

@@ -22,7 +22,7 @@ def changeTime(tempTime,time):
 def on_created(event):
         # time.sleep(1)
         videoName = event.src_path[13:-4]
-        videoName = changeTime(videoName,10)
+        videoName = changeTime(videoName,15)
         try:
             for root, dirs, files in os.walk(ADDRESS_AUDIO):
                 for _file in files:
@@ -59,7 +59,7 @@ def create_video_with_sound():
 
 
 def combine_audio(vidname, audname):
-    vidname = changeTime(vidname,-10)
+    vidname = changeTime(vidname,-15)
     vidname = ADDRESS_VIDEO + '/'+vidname+'.mp4'
     audname = ADDRESS_AUDIO + '/'+audname+'.wav'
     print("video "+vidname,"Audio " +audname)
