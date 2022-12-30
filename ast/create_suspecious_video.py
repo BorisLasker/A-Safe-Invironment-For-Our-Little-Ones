@@ -59,8 +59,3 @@ class Create_Vid:
                     found=True  
         out.release()
 
-vid_len=375
-delta = 15
-a = Create_Vid('2022-12-08 11-43-08.wav',vid_len,delta )
-a.create_video()
-

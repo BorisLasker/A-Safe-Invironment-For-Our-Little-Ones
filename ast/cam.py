@@ -24,7 +24,7 @@ class Camera:
         print("Camera is on")
         while True:
             self.image = self.vs.read()
-            cv2.imshow('Image', self.image)
+            cv2.imshow('Video', self.image)
             self.counter+=1
             cv2.imwrite(ADDRESS_FRAME_SAVE+time.strftime("%Y-%m-%d %H-%M-%S---")+'{:06}'.format(self.counter)+'.jpg',self.image)
             if cv2.waitKey(1) & 0xFF == ord("q"):
