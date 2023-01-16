@@ -53,11 +53,6 @@ def ast():
         my_observer.join()
 VideoWithAudio.init_video_sound() 
  
-       
-
-
-
-  
 connect_to_fb.ConnectToDB()
           
 cam.Camera().start()
