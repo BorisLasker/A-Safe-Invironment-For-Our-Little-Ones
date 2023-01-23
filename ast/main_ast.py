@@ -11,7 +11,11 @@ import create_suspecious_video
 import connect_to_fb
 from time import sleep
 import VideoWithAudio
+
 ADDRESS_SAVE = 'audio'
+ADDRESS_VIDEO = 'saved videos'
+ADDRESS_VideoWithAudio = 'VideoWithAudio'
+ADDRESS_FRAME_SAVE = "saved frames/"
 
 lastAudio = ' '
 
@@ -51,6 +55,21 @@ def ast():
     except Exception:
         my_observer.stop()
         my_observer.join()
+        
+        
+        
+
+
+if not os.path.exists(ADDRESS_SAVE):
+    os.makedirs(ADDRESS_SAVE)
+if not os.path.exists(ADDRESS_VIDEO):
+    os.makedirs(ADDRESS_VIDEO)
+if not os.path.exists(ADDRESS_VideoWithAudio):
+    os.makedirs(ADDRESS_VideoWithAudio)
+if not os.path.exists(ADDRESS_FRAME_SAVE):
+    os.makedirs(ADDRESS_FRAME_SAVE)
+    
+    
 VideoWithAudio.init_video_sound() 
  
 connect_to_fb.ConnectToDB()
