@@ -10,4 +10,5 @@ When our system detects that the child is in distress, it will send a notificati
 
 
 video simulation:
+
 https://clipchamp.com/watch/jCWRoQoe03k?utm_source=share&utm_medium=social&utm_campaign=watch
